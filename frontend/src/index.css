@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    box-sizing: border-box;
+}
+
+.leaflet-grab {
+    cursor: default;
+}
+
+.leaflet-dragging .leaflet-grab {
+    cursor: move;
+}
+
+.leaflet-routing-container {
+    display: none;
+}
+
+
+
+
+/* NavBarComponent.jsx */
+
+.navMenuOps:hover {
+    border: none;
+    background: linear-gradient(to bottom, #388E3C, #4fc454);
+    color: white;
+}
+
+.navMenuOps:active {
+    border: none;
+    background: linear-gradient(to top, #388E3C, #4fc454);
+    color: white;
+}
+
+@media (min-width: 800px) {
+    .navAppName::before {
+        visibility: visible;
+        content: "Municipality Garbage Management";
+        /* top: 50%;
+        transform: translateX(-50%); */
+    }
+
+}
+
+@media (max-width: 800px) and (min-width: 0px) {
+    .navAppName::before {
+        visibility: visible;
+        content: "MGM";
+        /* top: 50%;
+        transform: translateX(-50%); */
+    }
+
+}
+
+
+
+
+/* Login.jsx */ 
+
+@media (max-width: 996px) {
+    .wlcmMsgContainer {
+        gap: 1.25rem
+    }
+}
+
+@media (max-width: 850px){
+    .loginPageMain {
+        flex-direction: column;
+    }
+    .wlcmMsgContainer {
+        align-items: center;
+    }
+    .MGMMsg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .MGPara {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) and (min-width: 0px) {
+    .wlcmMsg, .MGMMsg {
+        font-size: 2.75rem;
+    }
+
+}
+
+@media (max-width: 500px){
+    .inputsContainer{               /* for AddPath.jsx also */
+        width: 80vw;
+    }
+    .inputFields{
+        width: 100%;
+    }
+}
+
+.wlcmMsg {
+    animation: upToDownEnter 0.6s ease-out;
+}
+
+.MGMMsg, .loginContainer {
+    animation: downToUpEnter 0.6s ease-out;
+}
+
+@keyframes upToDownEnter {
+    0% {transform: translateY(-20%); opacity: 0;}
+    /* 60% {opacity: 0.4;} */
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+@keyframes downToUpEnter {
+    0% {transform: translateY(20%); opacity: 0;}
+    /* 60% {opacity: 0.4;} */
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+
+
+/* AddDustbin.jsx & AddPath.jsx */
+
+.sidePathListContainer::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+/* Dashboard.jsx */
+
+.allStatusContainer::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+/* AddVehicle.jsx & AddDriver.jsx */
+
+@media (max-width: 1386px) and (min-width: 1078px)  {
+    .vehicleGrid, .driverGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1078px) and (min-width: 770px) {
+    .vehicleGrid, .driverGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 770px) and (min-width: 462px) {
+    .vehicleGrid, .driverGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 462px) and (min-width: 0px) {
+    .vehicleGrid, .driverGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .addVehicleBtn, .addDriverBtn {
+        height: 15rem;
+    }
+}

@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.leaflet-grab {
+    cursor: default;
+}
+
+.leaflet-dragging .leaflet-grab {
+    cursor: move;
+}
+
+/* Login.jsx */ 
+
+@media (max-width: 996px) {
+    .wlcmMsgContainer {
+        gap: 1.25rem
+    }
+}
+
+@media (max-width: 850px){
+    .loginPageMain {
+        flex-direction: column;
+    }
+    .wlcmMsgContainer {
+        align-items: center;
+    }
+    .MGMMsg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .MGPara {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) and (min-width: 0px) {
+    .wlcmMsg, .MGMMsg {
+        font-size: 2.75rem;
+    }
+
+}
+
+@media (max-width: 500px){
+    .inputsContainer{               /* for AddPath.jsx also */
+        width: 80vw;
+    }
+    .inputFields{
+        width: 100%;
+    }
+}
+
+.wlcmMsg {
+    animation: upToDownEnter 0.6s ease-out;
+}
+
+.MGMMsg, .loginContainer {
+    animation: downToUpEnter 0.6s ease-out;
+}
+
+@keyframes upToDownEnter {
+    0% {transform: translateY(-20%); opacity: 0;}
+    /* 60% {opacity: 0.4;} */
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+@keyframes downToUpEnter {
+    0% {transform: translateY(20%); opacity: 0;}
+    /* 60% {opacity: 0.4;} */
+    100% {transform: translateX(0); opacity: 1;}
+}
