@@ -84,7 +84,7 @@ function Home() {
 
     const createDustbinMatchStatus = async (currLat, currLng) => {
         dustbins.map(async (eachDustbin) => {
-            if(((eachDustbin.coords.lat - currLat <= 0.0001) || (eachDustbin.coords.lat - currLat >= -0.0001)) && ((eachDustbin.coords.lng - currLng <= 0.0001) || (eachDustbin.coords.lng - currLng >= -0.0001))){
+            if(((eachDustbin.coords.lat - currLat <= 0.0001) && (eachDustbin.coords.lat - currLat >= -0.0001)) && ((eachDustbin.coords.lng - currLng <= 0.0001) && (eachDustbin.coords.lng - currLng >= -0.0001))){
                 const response = await fetch(`${backendURL}/trackingStatus/create`, {
                     method: 'POST',
                     headers: {
