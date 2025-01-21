@@ -1,5 +1,7 @@
 import { useState } from "react"
 import {useNavigate} from 'react-router-dom'
+// import Person1 from '../assets/'
+import Person1 from '../assets/Person1.webp';
 
 const AssignCardComponent = ({pathName, pathId, dustbinNo, driverName, vehicleNo, children}) => {
     // const [pathName, serPathName] = useState();
@@ -18,7 +20,9 @@ const AssignCardComponent = ({pathName, pathId, dustbinNo, driverName, vehicleNo
     return(
         <>
             <div className="relative w-full py-10 flex flex-col items-center justify-center gap-8" style={{boxShadow: "10px 10px 20px 4px rgb(0 0 0 / 0.1), -10px -10px 20px 4px rgb(0 0 0 / 0.1)", background: "linear-gradient(45deg, #e6f5e6, #b9ebb9)"}}>
-                <div className="bg-gray-500 h-44 w-44 rounded-full"></div>
+                <div className=" h-44 w-44 rounded-full overflow-hidden">
+                    <img src={Person1} alt="" />
+                </div>
                 <div className="w-[72%]">
                     <div className="text-2xl font-bold text-green-700 mb-2 truncate">
                         <b>Path Name :</b> {pathName}

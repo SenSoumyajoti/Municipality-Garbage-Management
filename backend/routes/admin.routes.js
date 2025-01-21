@@ -1,5 +1,6 @@
 const express = require('express');
-const {adminRegister, adminLogin, adminLogout} = require('../controllers/admin.controllers');
+const upload = require("../configs/multerConfig");
+const {adminRegister, adminLogin, adminLogout, adminEdit} = require('../controllers/admin.controllers');
 const route = express.Router();
 
 route.get("/register", (req, res) => {
@@ -13,7 +14,7 @@ route.get("/login", (req, res) => {
 });
 
 route.post("/login", adminLogin);
-
+route.post("/edit", upload.single("image"), adminEdit);
 route.get("/logout", adminLogout);
 
 module.exports = route;

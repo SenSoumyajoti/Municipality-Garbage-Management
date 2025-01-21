@@ -1,5 +1,6 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Person1 from '../assets/Person1.webp'
 const backendURL = import.meta.env.VITE_BACKEND_URL
 
 const DriverDetailsComponent = ({driver, onDriverClick, onDelete}) => {
@@ -13,7 +14,9 @@ const DriverDetailsComponent = ({driver, onDriverClick, onDelete}) => {
                     onClick={() => onDriverClick(driver.username)}
                 >
                     <div className="h-60 flex justify-center items-center">
-                        <div className="w-48 h-48 rounded-full bg-gray-700"></div>
+                        <div className="w-48 h-48 rounded-full overflow-hidden">
+                            <img src={Person1} alt="" />
+                        </div>
                     </div>
                     <div className="flex flex-col p-3">
                         <div className="truncate">

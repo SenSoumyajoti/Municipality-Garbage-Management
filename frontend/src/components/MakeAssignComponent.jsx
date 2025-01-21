@@ -126,7 +126,7 @@ const MakeAssignComponent = ({path}) => {
                     </div>
 
                     <div className="truncate">
-                        <p className="font-bold">Driver Username : </p>
+                        <p className="font-bold">Vehicle Registration : </p>
                         <select name="" id="" className="w-full p-2 rounded-md border-[1px] border-black" onChange={handleVehicleChange}>
                             <option value=''>Select</option>
                             {vehicles.map((eachVehicle, idx) => (

@@ -1,5 +1,6 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Truck from '../assets/GarbageTruckPicture.jpg'
 const backendURL = import.meta.env.VITE_BACKEND_URL
 
 const VehicleDetailsComponent = ({vehicle, onVehicleClick, onDelete}) => {
@@ -31,7 +32,9 @@ const VehicleDetailsComponent = ({vehicle, onVehicleClick, onDelete}) => {
                 <div className="w-full flex flex-col"
                     onClick={() => onVehicleClick(vehicle.vehicleId)}
                 >
-                    <div className="h-60 bg-gray-700"></div>
+                    <div className="h-60">
+                        <img src={Truck} alt="" className="h-full" />
+                    </div>
                     <div className="flex flex-col p-3">
                         <div className="truncate">
                             <p className="inline font-bold">Vehicle ID : </p>

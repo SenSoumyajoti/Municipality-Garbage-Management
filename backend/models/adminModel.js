@@ -19,7 +19,7 @@ const adminSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    profilePic : String,
+    profilePic : Buffer,
     isAdmin : {
         type: Boolean,
         default: true

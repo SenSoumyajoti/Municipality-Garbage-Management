@@ -139,7 +139,7 @@ const AddVehicle = () => {
                                 ${addNewVehicle ? 'top-[50vh] -translate-y-1/2' : 'top-0 -translate-y-full'}`}
                     style={{background: "linear-gradient(45deg, #e6f5e6, #b9ebb9)"}}
                 >
-                    <h1 className="text-3xl mb-10">Create New Path</h1>
+                    <h1 className="text-3xl mb-10">Create New Vehicle</h1>
                     <form className="flex flex-col items-center"
                         onSubmit={createVehicle}>
                         <div className="inputsContainer flex flex-col gap-3">

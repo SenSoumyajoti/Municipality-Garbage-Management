@@ -53,6 +53,7 @@ const LoginPage = () => {
                         fullName: data.user.fullName,
                         username: data.user.username,
                         email: data.user.email,
+                        profilePic: data.user.profilePic,
                         isAdmin: data.user.isAdmin
                     })
                 );
