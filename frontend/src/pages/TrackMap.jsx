@@ -134,7 +134,7 @@ const TrackMap = () => {
 
     // fetch all the assignments
     const getAllAssignments = async () => {
-        const response = await fetch("http://localhost:3000/assign/getAllAssigns?populatePath=true&populateDriver=true&populateVehicle=true",
+        const response = await fetch(`${backendURL}/assign/getAllAssigns?populatePath=true&populateDriver=true&populateVehicle=true`,
             {
                 method: 'GET'
             }
@@ -273,14 +273,28 @@ const TrackMap = () => {
         // console.log(data.location);
         // console.log(pathId)
         setLcnRcvCnt(prev => (prev+1))
-        console.log(data.pathId.pathId)
-        console.log(pathId)
-        if(data.pathId.pathId == pathId){
+        // console.log(data.pathId.pathId)
+        // console.log(pathId)
+        if(data.pathId.pathId === pathId){
+            console.log("**1**  condition checking")
+            // setCarPosition({
+            //     lat: data.location.latitude,
+            //     lng: data.location.longitude
+            // })
+        }
+        if(data.pathId.pathId === pathId){
             console.log("condition checking")
             setCarPosition({
                 lat: data.location.latitude,
                 lng: data.location.longitude
             })
+        }
+        else{
+            console.log("condition false")
+        //     setCarPosition({
+        //         lat: undefined,
+        //         lng: undefined
+        //     })
         }
     })
 
