@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http')
 const { Server } = require('socket.io');
 const cors = require('cors');
-const methods = require('methods');
+// const methods = require('methods');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
@@ -84,14 +84,14 @@ app.use(
 
 app.set("view engine", "ejs");
 
-app.use("/admin", adminRouter);
-app.use("/area", areaRouter);
-app.use("/path", pathRouter);
-app.use("/dustbin", dustbinRouter);
-app.use("/driver", driverRouter);
-app.use("/assign", assignRouter);
-app.use("/vehicle", vehicleRouter);
-app.use("/trackingStatus", trackingStatusRouter);
+// app.use("/admin", adminRouter);
+// app.use("/area", areaRouter);
+// app.use("/path", pathRouter);
+// app.use("/dustbin", dustbinRouter);
+// app.use("/driver", driverRouter);
+// app.use("/assign", assignRouter);
+// app.use("/vehicle", vehicleRouter);
+// app.use("/trackingStatus", trackingStatusRouter);
 
 app.get("/", (req, res) => {
     res.send("server is running .... ");

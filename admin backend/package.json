@@ -7,6 +7,7 @@
     "ansi-styles": "^4.3.0",
     "array-flatten": "^1.1.1",
     "async": "^3.2.6",
+    "backend": "file:",
     "balanced-match": "^1.0.2",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
