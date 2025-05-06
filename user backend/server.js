@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const userRouter = require('./routes/user.routes');
+const feedbackRouter = require('./routes/feedback.routes');
 // const areaRouter = require('./routes/area.routes');
 // const pathRouter = require('./routes/path.routes');
 // const dustbinRouter = require('./routes/dustbin.routes');
@@ -87,6 +88,7 @@ app.use(
 app.set("view engine", "ejs");
 
 app.use("/user", userRouter);
+app.use("/feedback", feedbackRouter);
 // app.use("/area", areaRouter);
 // app.use("/path", pathRouter);
 // app.use("/dustbin", dustbinRouter);
