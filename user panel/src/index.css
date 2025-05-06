@@ -1,5 +1,77 @@
 @import "tailwindcss";
 
+body {
+  overflow-x: hidden;
+}
+
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 0.83rem;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 0.67rem;
+  font-weight: bold;
+}
+
+
+/* NavBarComponent.jsx */
+
+.navMenuOps:hover {
+  border: none;
+  background: linear-gradient(to bottom, #388E3C, #4fc454);
+  color: white;
+}
+
+.navMenuOps:active {
+  border: none;
+  background: linear-gradient(to top, #388E3C, #4fc454);
+  color: white;
+}
+
+@media (min-width: 800px) {
+  .navAppName::before {
+      visibility: visible;
+      content: "Green Tracker";
+      /* top: 50%;
+      transform: translateX(-50%); */
+  }
+
+}
+
+@media (max-width: 800px) and (min-width: 0px) {
+  .navAppName::before {
+      visibility: visible;
+      content: "MGM";
+      /* top: 50%;
+      transform: translateX(-50%); */
+  }
+
+}
+
+
+
 
 /* Login.jsx */ 
 

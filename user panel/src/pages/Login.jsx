@@ -28,7 +28,7 @@ const LoginPage = () => {
         //     setPasswordErr('Password must be at least 8 characters long, contain at least one letter, one number, and one special character (@, #, !, or $)');
         //     return;
         // }
-        // if(email =='admin' && password == '1234')
+        // if(email =='user' && password == '1234')
         // {
         //     setFormErr("")
         //     navigate('/dashboard')
@@ -37,7 +37,7 @@ const LoginPage = () => {
         // else{
         //     setFormErr('invalid credentials!!')
         // }
-        const response = await fetch(`${backendURL}/admin/login`, {
+        const response = await fetch(`${backendURL}/user/login`, {
             method: "POST",
             headers: {
                 'Content-Type' : 'application/json'
@@ -54,7 +54,7 @@ const LoginPage = () => {
                         username: data.user.username,
                         email: data.user.email,
                         profilePic: data.user.profilePic,
-                        isAdmin: data.user.isAdmin
+                        isUser: data.user.isUser
                     })
                 );
             navigate('/');

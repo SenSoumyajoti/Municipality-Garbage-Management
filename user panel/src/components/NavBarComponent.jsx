@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell, faIdCard, faListCheck, faUser } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from "react-router-dom"
 import { faEdit, faXmark, faBars, faClockRotateLeft, faArrowRightFromBracket, faTruckFast, faTrashArrowUp, faUpload } from "@fortawesome/free-solid-svg-icons"
-import { IconLayoutDashboard, IconMap2 } from "@tabler/icons-react"
+// import { IconLayoutDashboard, IconMap2 } from "@tabler/icons-react"
 import { useEffect, useState } from "react"
 import { useRef } from "react"
 import axios from "axios";
@@ -95,7 +95,7 @@ const NavBarComponent = () => {
         formData.append("email", editEmail);
     
         try {
-            const response = await axios.post(`${backendURL}/admin/edit`, formData, {
+            const response = await axios.post(`${backendURL}/user/edit`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 
@@ -147,14 +147,14 @@ const NavBarComponent = () => {
             profileDetails.classList.add("right-[-24rem]")
         }
 
-        if(expandedMenu){
-            menu.classList.remove("left-[-18rem]")
-            menu.classList.add("left-0")
-        }
-        else {
-            menu.classList.remove("left-0")
-            menu.classList.add("left-[-18rem]")
-        }
+        // if(expandedMenu){
+        //     menu.classList.remove("left-[-18rem]")
+        //     menu.classList.add("left-0")
+        // }
+        // else {
+        //     menu.classList.remove("left-0")
+        //     menu.classList.add("left-[-18rem]")
+        // }
 
         if(expandedMenu || expandedProfile || expandedEditProfile) {
             setIsBlured(true)
@@ -235,12 +235,12 @@ const NavBarComponent = () => {
         <>
             <div className="w-full h-16 text-white bg-green-800 px-3 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                    {((localStorage.getItem("token") != '') && (localStorage.getItem("token") != null))
+                    {/* {((localStorage.getItem("token") != '') && (localStorage.getItem("token") != null))
                         ? <div className="text-3xl cursor-pointer" onClick={expandMenu}>
                             <FontAwesomeIcon icon={faBars} />
                         </div>
                         : <></>
-                    }
+                    } */}
                     <p className="navAppName text-3xl font-bold">
                         
                     </p>
@@ -350,56 +350,6 @@ const NavBarComponent = () => {
                         </button>
                     </div>
                 </form>
-            </div>
-
-            {/* expand menu */}
-            <div 
-                className="menu w-72 h-screen bg-white rounded-r-xl z-[12] absolute top-0 transition-all duration-300 ease-in-out"
-                style={{background: "linear-gradient(45deg, #e6f5e6, #b9ebb9)"}}>
-                <div className="m-4 flex flex-row-reverse">
-                    <div className="navMenuOps w-9 h-9 p-2 text-xl border-2 border-black rounded-full flex justify-center items-center cursor-pointer"
-                        onClick={shrinkMenu}>
-                        <FontAwesomeIcon icon={faXmark} />
-                    </div>
-                </div>
-                <div className="flex flex-col">
-                    <div className="navMenuOps w-60 py-2 px-4 text-lg text-start rounded-r-full flex items-center cursor-pointer" onClick={navigateDashboard}>
-                        <div className="w-10">
-                            <IconLayoutDashboard />
-                        </div>
-                        <p>Dashboard</p>
-                    </div>
-                    <div className="navMenuOps w-60 py-2 px-4 text-lg text-start rounded-r-full flex items-center cursor-pointer" onClick={navigatePath}>
-                        <div className="w-10">
-                            <IconMap2 />
-                        </div>
-                        <p>Manage Paths</p>
-                    </div>
-                    <div className="navMenuOps w-60 py-2 px-4 text-lg text-start rounded-r-full flex items-center cursor-pointer" onClick={navigateDustbin}>
-                        <div className="w-10 pl-[4px]">
-                        <FontAwesomeIcon icon={faTrashArrowUp}/>
-                        </div>
-                        <p>Manage Dustbins</p>
-                    </div>
-                    <div className="navMenuOps w-60 py-2 px-4 text-lg text-start rounded-r-full flex items-center cursor-pointer" onClick={navigateDriver}>
-                        <div className="w-10">
-                        <FontAwesomeIcon icon={faIdCard}/>
-                        </div>
-                        <p>Manage Drivers</p>
-                    </div>
-                    <div className="navMenuOps w-60 py-2 px-4 text-lg text-start rounded-r-full flex items-center cursor-pointer" onClick={navigateVehicle}>
-                        <div className="w-10">
-                            <FontAwesomeIcon icon={faTruckFast}/>
-                        </div>
-                        <p>Manage Vehicles</p>
-                    </div>
-                    <button className="navMenuOps w-60 py-2 px-4 text-lg text-start rounded-r-full flex items-center cursor-pointer" onClick={navigateAssign}>
-                        <div className="w-10 text-xl pl-[2px]">
-                            <FontAwesomeIcon icon={faListCheck}/>
-                        </div>
-                        <p>Assign</p>
-                    </button>
-                </div>
             </div>
 
             {/* blured layer */}

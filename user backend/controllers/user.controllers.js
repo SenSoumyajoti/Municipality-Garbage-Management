@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const cookieParser = require('cookie-parser');
-const multer = require('multer')
+// const multer = require('multer')
 
 const userModel = require("../models/userModel");
 const genToken = require('../utils/genToken');
