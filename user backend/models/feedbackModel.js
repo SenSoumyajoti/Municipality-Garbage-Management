@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const feedbackSchema = mongoose.Schema({
 
+    id:{
+        type:String,
+        required:true
+    },
     cleanedtoday : {
         type: Boolean,
         required: true

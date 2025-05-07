@@ -9,8 +9,9 @@ class feedbackController {
     try {
       
       const {cleanedtoday,onTime,feedbackPic,rating,suggestion} = req.body;
+      const id = Date.now().toString(36) + Math.random().toString(36).slice(2);
 
-      const createFeedback= await feedbackModel.create({cleanedtoday,onTime,feedbackPic,
+      const createFeedback= await feedbackModel.create({id,cleanedtoday,onTime,feedbackPic,
         rating,suggestion});
 
       return res.status(201).json({
