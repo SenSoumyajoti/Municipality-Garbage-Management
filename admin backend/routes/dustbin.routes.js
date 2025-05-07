@@ -6,4 +6,4 @@ route.post("/createDustbin", createDustbin);
 route.get("/getAllDustbins/:pathId", getAllDustbins);
 route.delete("/deleteDustbin", deleteDustbin);
 
-module.exports = route; 
+module.exports = route;
