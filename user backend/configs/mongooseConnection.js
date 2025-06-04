@@ -9,4 +9,4 @@ mongoose
     console.log(err.message)
 });
 
-// module.exports = mongoose.connection;
+ module.exports = mongoose.connection;
