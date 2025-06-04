@@ -34,7 +34,7 @@ class driverController {
             const token = genToken(sentDriver);
             res.cookie("token", token, {httpOnly : true});
             console.log("registered");
-            return res.status(201).json({message: "driver registration successful", addedDriver: sentDriver});
+            return res.status(201).json({message: "Driver registration successful", addedDriver: sentDriver});
 
         } catch(err) {
             console.error(err);

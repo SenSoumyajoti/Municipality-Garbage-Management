@@ -10,6 +10,42 @@
     cursor: move;
 }
 
+/* NavBarComponent.jsx */
+
+.navMenuOps:hover {
+    border: none;
+    background: linear-gradient(to bottom, #388E3C, #4fc454);
+    color: white;
+}
+
+.navMenuOps:active {
+    border: none;
+    background: linear-gradient(to top, #388E3C, #4fc454);
+    color: white;
+}
+
+@media (min-width: 800px) {
+    .navAppName::before {
+        visibility: visible;
+        content: "MGM Let's Drive";
+        /* top: 50%;
+        transform: translateX(-50%); */
+    }
+
+}
+
+@media (max-width: 800px) and (min-width: 0px) {
+    .navAppName::before {
+        visibility: visible;
+        content: "Let's Drive";
+        /* top: 50%;
+        transform: translateX(-50%); */
+    }
+
+}
+
+
+
 /* Login.jsx */ 
 
 @media (max-width: 996px) {

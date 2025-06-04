@@ -4,6 +4,9 @@ body {
   overflow-x: hidden;
 }
 
+input[type="radio"]:checked {
+  accent-color: rgb(0, 150, 0);
+}
 
 h1 {
   font-size: 2rem;
@@ -132,4 +135,36 @@ h6 {
   0% {transform: translateY(20%); opacity: 0;}
   /* 60% {opacity: 0.4;} */
   100% {transform: translateX(0); opacity: 1;}
+}
+
+
+
+/* Feedback.jsx */
+
+.feedbackImg::file-selector-button {
+  color: #388E3C;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.feedbackImg::file-selector-button:hover {
+  color: #4fc454;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+
+/* History.jsx */
+
+.reqHistoryTable {
+  border-collapse: collapse;
+}
+
+.reqHistoryTable th,
+.reqHistoryTable td {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  text-align: left;
 }

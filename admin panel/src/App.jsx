@@ -12,6 +12,7 @@ import AddPath from './pages/AddPath'
 import AddDustbin from './pages/AddDustbin'
 import AddVehicle from './pages/AddVehicle'
 import AddDriver from './pages/AddDriver'
+import CollectionRequests from './pages/CollectionRequests'
 
 const backendURL = import.meta.env.VITE_BACKEND_URL
 
@@ -36,6 +37,8 @@ function App() {
           <Route path='/addDustbin' element={<AddDustbin />} />
           <Route path='/addVehicle' element={<AddVehicle />} />
           <Route path='/addDriver' element={<AddDriver />} />
+
+          <Route path='/requests' element={<CollectionRequests />} />
 
           <Route path='/slideShow' element={< SlideShow />} />
         </Routes>
