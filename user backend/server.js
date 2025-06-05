@@ -90,14 +90,7 @@ app.set("view engine", "ejs");
 
 app.use("/user", userRouter);
 app.use("/feedback", feedbackRouter);
-app.use("/collect",reqCollectionRouter);
-// app.use("/area", areaRouter);
-// app.use("/path", pathRouter);
-// app.use("/dustbin", dustbinRouter);
-// app.use("/driver", driverRouter);
-// app.use("/assign", assignRouter);
-// app.use("/vehicle", vehicleRouter);
-// app.use("/trackingStatus", trackingStatusRouter);
+app.use("/reqCollection", reqCollectionRouter);
 
 app.get("/", (req, res) => {
     res.send("server is running .... ");

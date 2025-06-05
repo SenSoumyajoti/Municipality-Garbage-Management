@@ -1,38 +1,43 @@
 const mongoose = require("mongoose");
 
-const reqSchema = mongoose.Schema(
-  {
+const reqCollectionSchema = mongoose.Schema({
     reqId: {
-      type: String,
-      unique: true,
+        type: String,
+        unique: true,
     },
     address: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     quantity: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     phone_no: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
-    dropdown: {
-      type: String,
-      enum: ["dry", "wet", "mixed"],
-      default: undefined,
-      required: true,
+    garbageType: {
+        type: String,
+        enum: ["dry", "wet", "mixed"],
+        default: undefined,
+        required: true,
     },
     status: {
-      type: String,
-      enum: ["pending", "approved", "collected", "rejected"],
-      default: "pending",
+        type: String,
+        enum: ["pending", "approved", "collected", "rejected"],
+        default: "pending",
     },
-  },
-  {
-    timestamps: true,
-  }
-);
+    location: {
+        lat: {
+            type: Number,
+            required: true
+        },
+        lng: {
+            type: Number,
+            required: true
+        }
+    }
+}, {timestamps: true});
 
-module.exports = mongoose.model("req", reqSchema);
+module.exports = mongoose.model("reqCollection", reqCollectionSchema);

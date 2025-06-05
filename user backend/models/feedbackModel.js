@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
 const feedbackSchema = mongoose.Schema({
-
-    id:{
+    feedbackId : {
         type:String,
         required:true
     },
@@ -19,7 +18,7 @@ const feedbackSchema = mongoose.Schema({
         required:false
     },
     rating : {
-        type: String,
+        type: Number,
         required: true
     },
     suggestion : {
