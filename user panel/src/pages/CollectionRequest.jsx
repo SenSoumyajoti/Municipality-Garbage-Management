@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import NavBarComponent from "../components/NavBarComponent";
 import StarRating from "../components/StarRating";
@@ -13,6 +13,13 @@ const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 const CollectionRequestPage = () => {
     const [addDustbin, setAddDustbin] = useState(null);
+    const [userId, setUserId] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [phNo, setphNo] = useState('');
+    const [address, setAddress] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [garbageType, setGarbageType] = useState('dry');
+    const [collectionDate, setCollectionDate] = useState('');
 
     // Event listeners on map
     const EventListenerComponent = () => {
@@ -24,7 +31,91 @@ const CollectionRequestPage = () => {
             })
         })
 
-        return null
+        return null;
+    }
+
+    const handleFullNameChange = (e) => {
+        setFullName(e.target.value);
+    }
+
+    const handlePhNoChange = (e) => {
+        setphNo(e.target.value);
+    }
+
+    const handleAddressChange = (e) => {
+        setAddress(e.target.value);
+    }
+
+    const handleQuantityChange = (e) => {
+        setQuantity(e.target.value);
+    }
+
+    const handleGarbageTypeChange = (e) => {
+        setGarbageType(e.target.value);
+    }
+
+    const handleCollectionDateChange = (e) => {
+        setCollectionDate(e.target.value);
+    }
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+
+        if(fullName == '') {
+            alert('Please provide your full name');
+            return;
+        }
+        else if(phNo == '') {
+            alert('Please provide your Phone No.');
+            return;
+        }
+        else if(address == '') {
+            alert('Please provide your full address');
+            return;
+        }
+        else if(quantity == '') {
+            alert('Please provide the approximate garbage quantity');
+            return;
+        }
+        else if(garbageType == '') {
+            alert('Please select a garbage type');
+            return;
+        }
+        else if(collectionDate == '') {
+            alert('Please select the collection date and time');
+            return;
+        }
+
+        const response = await fetch(`${backendURL}/reqCollection/submit`, {
+            method: "POST",
+            headers: {
+                "content-type" : "application/json"
+            },
+            body: JSON.stringify({
+                userId,
+                fullName,
+                address, 
+                quantity, 
+                phone_no : phNo, 
+                garbageType, 
+                location : addDustbin,
+                collectionDate,
+            })
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+        if(response.ok) {
+            setFullName('');
+            setphNo('');
+            setAddress('');
+            setQuantity('');
+            setGarbageType('dry');
+            setCollectionDate('');
+            setAddDustbin(null);
+        }
+
     }
 
     // custom icon for temporaty checkpoint
@@ -34,6 +125,14 @@ const CollectionRequestPage = () => {
         iconAnchor: [15, 22],
         popupAnchor: [0, -45]
     });
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem("token");
+        if(storedToken) {
+            const parsedToken = JSON.parse(storedToken);
+            setUserId(parsedToken.id);
+        }
+    }, []);
 
     return (
         <>
@@ -52,14 +151,18 @@ const CollectionRequestPage = () => {
                     <div className="text-green-600 text-center my-3">
                         <h1>Request A Quick Collection</h1>
                     </div>
-                    <form className="flex flex-col items-center">
+                    <form className="flex flex-col items-center" onSubmit={handleFormSubmit}>
                         <div className="grid grid-cols-2 gap-20">
                             <div className="flex flex-col gap-7">
                                 <div className="flex flex-col gap-2">
                                     <p>Full Name</p>
                                     <div className="feedbackOptions p-2 text-lg border-2 border-gray-300 rounded-sm flex gap-10">
                                         <div>
-                                            <input type="text" className="outline-none" />
+                                            <input
+                                                type="text" className="outline-none"
+                                                value={fullName}
+                                                onChange={handleFullNameChange}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -67,14 +170,22 @@ const CollectionRequestPage = () => {
                                 <div className="flex flex-col gap-2">
                                     <p>Address</p>
                                     <div className="feedbackOptions p-3 border-2 border-gray-300 rounded-sm">
-                                        <input type="text" className="outline-none" />
+                                        <input
+                                            type="text" className="outline-none"
+                                            value={address}
+                                            onChange={handleAddressChange}
+                                        />
                                     </div>
                                 </div>
                                 
                                 <div className="flex flex-col gap-2">
                                     <p>Garbage Type</p>
                                     <div className="feedbackOptions p-3 border-2 border-gray-300 rounded-sm">
-                                        <select className="outline-none w-full">
+                                        <select
+                                            className="outline-none w-full"
+                                            value={garbageType}
+                                            onChange={handleGarbageTypeChange}
+                                        >
                                             <option value="dry">Dry</option>
                                             <option value="wet">Wet</option>
                                             <option value="mixed">Mixed</option>
@@ -87,7 +198,11 @@ const CollectionRequestPage = () => {
                                     <p>Phone No.</p>
                                     <div className="feedbackOptions p-2 text-lg border-2 border-gray-300 rounded-sm flex gap-10">
                                         <div>
-                                            <input type="text" className="outline-none" />
+                                            <input
+                                                type="text" className="outline-none"
+                                                value={phNo}
+                                                onChange={handlePhNoChange}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +210,11 @@ const CollectionRequestPage = () => {
                                 <div className="flex flex-col gap-2">
                                     <p>Estimated Garbage Quantity</p>
                                     <div className="feedbackOptions p-3 border-2 border-gray-300 rounded-sm">
-                                        <input type="text" className="outline-none" />
+                                        <input
+                                            type="text" className="outline-none"
+                                            value={quantity}
+                                            onChange={handleQuantityChange}
+                                        />
                                     </div>
                                 </div>
 
@@ -103,7 +222,11 @@ const CollectionRequestPage = () => {
                                     <p>Date Of Collection</p>
                                     <div className="feedbackOptions p-2 text-lg border-2 border-gray-300 rounded-sm flex gap-10">
                                         <div className="w-full">
-                                            <input type="date" className="outline-none w-full"/>
+                                            <input
+                                                type="datetime-local" className="outline-none w-full"
+                                                value={collectionDate}
+                                                onChange={handleCollectionDateChange}
+                                            />
                                         </div>
                                     </div>
                                 </div>

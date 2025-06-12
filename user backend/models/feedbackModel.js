@@ -23,7 +23,7 @@ const feedbackSchema = mongoose.Schema({
     },
     suggestion : {
         type: String,
-        required: true
+        required: false
     }
 });
 

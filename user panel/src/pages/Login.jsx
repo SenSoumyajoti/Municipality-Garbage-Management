@@ -50,6 +50,7 @@ const LoginPage = () => {
             localStorage.setItem("token",
                 JSON.stringify(
                     {
+                        id: data.user.id,
                         fullName: data.user.fullName,
                         username: data.user.username,
                         email: data.user.email,

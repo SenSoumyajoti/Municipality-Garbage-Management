@@ -14,6 +14,7 @@ const driverRouter = require('./routes/driver.routes');
 const assignRouter = require('./routes/assign.routes');
 const vehicleRouter = require('./routes/vehicle.routes');
 const trackingStatusRouter = require('./routes/trackingStatus.routes');
+const reqCollectionRouter = require('./routes/reqcollection.routes');
 const cookieParser = require('cookie-parser');
 const db = require('./configs/mongooseConnection');
 
@@ -92,6 +93,7 @@ app.use("/driver", driverRouter);
 app.use("/assign", assignRouter);
 app.use("/vehicle", vehicleRouter);
 app.use("/trackingStatus", trackingStatusRouter);
+app.use("/reqCollection", reqCollectionRouter);
 
 app.get("/", (req, res) => {
     res.send("server is running .... ");

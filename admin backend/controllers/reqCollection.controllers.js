@@ -1,40 +1,7 @@
 const reqCollectionModel = require("../models/reqcollectionModel");
 
+
 class reqCollectionController {
-
-    // create new request
-    async submitReqCollection(req, res) {
-        try{
-            
-            //const username=req.user.fullName;        
-            const {userId, fullName, address, quantity, phone_no, garbageType, location , collectionDate } = req.body;
-            const reqId = Date.now() + "-" + Math.floor(Math.random() * 1000);
-    
-            const createdReqest = await reqCollectionModel.create({
-                reqId,
-                userId,
-                fullName,
-                address,
-                quantity,
-                phone_no,
-                garbageType,
-                location,
-                collectionDate
-            });
-
-            if(createdReqest){
-                return res.status(201).json({ message: "Collection request submitted successfully", createdReqest });
-            }
-            else{
-                return res.status(500).json({ message: "Failed to submit your request" });
-            }
-
-        } catch(err) {
-            console.error(err);
-            return res.status(500).json({ message: "Failed to submit your request", error: err.message });
-        }
-    }
-
     // get all collection requests
     async getAllreqCollection(req, res) {
         try {
